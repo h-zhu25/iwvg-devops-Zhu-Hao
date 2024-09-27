@@ -35,6 +35,14 @@ class SearchesTest {
         assertEquals(new Fraction(0, 1), result);
     }
 
+    @Test
+    void testFindUserIdByAllProperFraction() {
+        Searches searches = new Searches();
+        List<String> result = searches.findUserIdByAllProperFraction().collect(Collectors.toList());
+        List<String> expected = List.of("5","3");
+        assertEquals(expected, result);
+    }
+
 
 
 

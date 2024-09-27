@@ -35,16 +35,12 @@ public class Searches {
                 .orElse(null);
     }
 
-
-
-
-
-
-
-
-
-
-
+    public Stream<String> findUserIdByAllProperFraction() {
+        return this.usersDatabase.findAll()
+                .filter(user -> user.getFractions().stream()
+                        .allMatch(fraction -> Math.abs(fraction.getNumerator()) < Math.abs(fraction.getDenominator())))  // 判断所有分数是否为真分数
+                .map(User::getId);  // 获取符合条件的用户ID
+    }
 
 
 }
