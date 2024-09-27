@@ -12,34 +12,42 @@ public class Searches {
     }
 
     public Stream<Double> findDecimalImproperFractionByUserName(String name) {
+
         return this.usersDatabase.findAll()
                 .filter(user -> user.getName().equals(name))
                 .flatMap(user -> user.getFractions().stream())
                 .filter(fraction -> Math.abs(fraction.getNumerator()) > Math.abs(fraction.getDenominator()))
                 .map(Fraction::decimal);
+
     }
 
     public Stream<String> findUserFamilyNameBySomeImproperFraction() {
+
         return this.usersDatabase.findAll()
                 .filter(user -> user.getFractions().stream()
                         .anyMatch(fraction -> Math.abs(fraction.getNumerator()) > Math.abs(fraction.getDenominator())))
                 .map(User::getFamilyName);
+
     }
 
     public Fraction findFirstProperFractionByUserId(String id) {
+
         return this.usersDatabase.findAll()
                 .filter(user -> user.getId().equals(id))
                 .flatMap(user -> user.getFractions().stream())  // 获取该用户的分数列表并展开
                 .filter(fraction -> Math.abs(fraction.getNumerator()) < Math.abs(fraction.getDenominator()))
                 .findFirst()
                 .orElse(null);
+
     }
 
     public Stream<String> findUserIdByAllProperFraction() {
+
         return this.usersDatabase.findAll()
                 .filter(user -> user.getFractions().stream()
                         .allMatch(fraction -> Math.abs(fraction.getNumerator()) < Math.abs(fraction.getDenominator())))  // 判断所有分数是否为真分数
                 .map(User::getId);  // 获取符合条件的用户ID
+
     }
 
 
