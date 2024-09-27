@@ -40,12 +40,20 @@ public class UsersDatabase {
                 new Fraction(3, 4)
         );
 
+        List<Fraction> fractionsJohn = List.of(
+                new Fraction(3, 2),  // 假设 John 有一些不规则分数
+                new Fraction(4, 3)
+        );
+
         return Stream.of(
                 new User("1", "Oscar", "Fernandez", fractions1),
                 new User("2", "Ana", "Blanco", fractions2),
                 new User("5", "Antonio", "Blanco", fractions5),
-                new User("3", "John", "Smith", fractionsSmith)
+                new User("3", "John", "Smith", fractionsSmith),
+                new User("4", "John", "Doe", fractionsJohn) // 添加 John 用户及其分数
         );
-
     }
+
+
 }
+
