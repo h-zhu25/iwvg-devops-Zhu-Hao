@@ -19,6 +19,13 @@ public class Searches {
                 .map(Fraction::decimal);
     }
 
+    public Stream<String> findUserFamilyNameBySomeImproperFraction() {
+        return this.usersDatabase.findAll()
+                .filter(user -> user.getFractions().stream()
+                        .anyMatch(fraction -> Math.abs(fraction.getNumerator()) > Math.abs(fraction.getDenominator()))) // 筛选包含不正确分数的用户
+                .map(User::getFamilyName); // 获取这些用户的姓氏
+    }
+
 
 
 
