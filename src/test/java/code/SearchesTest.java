@@ -20,6 +20,14 @@ class SearchesTest {
         assertEquals(expected, result);
     }
 
+    @Test
+    void testFindUserFamilyNameBySomeImproperFraction() {
+        Searches searches = new Searches();
+        List<String> result = searches.findUserFamilyNameBySomeImproperFraction().collect(Collectors.toList());
+        List<String> expected = List.of("Fernandez", "Blanco", "Doe");
+        assertEquals(expected, result);
+    }
+
 
 
 
