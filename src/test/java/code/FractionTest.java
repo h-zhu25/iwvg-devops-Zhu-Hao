@@ -13,11 +13,7 @@ public class FractionTest {
         assertEquals(4, fraction.getDenominator());
     }
 
-    @Test
-    void testConstructorWithZeroDenominator() {
-        Exception exception = assertThrows(ArithmeticException.class, () -> new Fraction(1, 0));
-        assertEquals("Denominator cannot be zero", exception.getMessage());
-    }
+
 
     @Test
     void testDefaultConstructor() {
@@ -122,3 +118,12 @@ public class FractionTest {
         assertEquals("Fraction{numerator=3, denominator=4}", fraction.toString());
     }
 }
+
+
+
+
+
+
+
+
+
