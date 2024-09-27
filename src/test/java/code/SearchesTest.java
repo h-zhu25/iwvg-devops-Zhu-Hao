@@ -28,6 +28,13 @@ class SearchesTest {
         assertEquals(expected, result);
     }
 
+    @Test
+    void testFindFirstProperFractionByUserId() {
+        Searches searches = new Searches();
+        Fraction result = searches.findFirstProperFractionByUserId("1");
+        assertEquals(new Fraction(0, 1), result);
+    }
+
 
 
 
